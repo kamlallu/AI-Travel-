@@ -2,16 +2,16 @@ The project is the Travel Reimbursement Approval Agent which uses GenAI to revie
 
 
 Features
-1.Claim submission through a web interface
-2.Policy lookup
-3.Receipt validation
-4.Spending limit validation
-5.Duplicate claim detection
-6.Manager approval verification
-7.AI-powered reimbursement recommendation
-8.Business Rule Validation dashboard
-9.Audit Trail
-10.Confidence Score
-11.Manual Review handling
-12.Recent Claims history
+1. Claim submission through a web interface
+2. Policy lookup
+3. Receipt validation
+4. Spending limit validation
+5. Duplicate claim detection
+6. Manager approval verification
+7. AI-powered reimbursement recommendation
+8. Business Rule Validation dashboard
+9. Audit Trail
+10. Confidence Score
+11. Manual Review handling
+12. Recent Claims history
 
