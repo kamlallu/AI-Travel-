@@ -1,0 +1,304 @@
+/* ==========================================
+   AI Travel Reimbursement Approval Agent
+   style.css
+========================================== */
+
+body {
+    background: linear-gradient(to right, #eef3f9, #ffffff);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ------------------------------------------
+   Header
+------------------------------------------ */
+
+h1,
+h2 {
+    font-weight: 700;
+    color: #0d6efd;
+}
+
+/* ------------------------------------------
+   Cards
+------------------------------------------ */
+
+.card {
+    border: none;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: all .3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.12);
+}
+
+.card-header {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* ------------------------------------------
+   Inputs
+------------------------------------------ */
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: 0 0 0 .15rem rgba(13,110,253,.25);
+}
+
+/* ------------------------------------------
+   Button
+------------------------------------------ */
+
+.btn-primary {
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.02);
+}
+
+/* ------------------------------------------
+   AI Decision Badge
+------------------------------------------ */
+
+#decision {
+    font-size: 17px;
+    padding: 10px 22px;
+    min-width: 160px;
+}
+
+/* ------------------------------------------
+   Approved Amount
+------------------------------------------ */
+
+#approved_amount {
+    color: green;
+    font-weight: bold;
+}
+
+/* ------------------------------------------
+   Deduction
+------------------------------------------ */
+
+#deduction {
+    color: crimson;
+    font-weight: bold;
+}
+
+/* ------------------------------------------
+   Confidence Progress
+------------------------------------------ */
+
+.progress {
+    height: 25px;
+    border-radius: 20px;
+    background: #dee2e6;
+}
+
+.progress-bar {
+    font-weight: bold;
+    transition: width .7s ease;
+}
+
+/* ------------------------------------------
+   AI Reason
+------------------------------------------ */
+
+#reason {
+    background: #f8f9fa;
+    border-left: 5px solid #0d6efd;
+    border-radius: 8px;
+    padding: 15px;
+    min-height: 90px;
+}
+
+/* ------------------------------------------
+   Business Rule Validation
+------------------------------------------ */
+
+.rule-box {
+
+    background: #f8f9fa;
+
+    border: 1px solid #dee2e6;
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    margin-bottom: 15px;
+
+    text-align: center;
+
+}
+
+.rule-box h6{
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}
+
+/* ------------------------------------------
+   List Groups
+------------------------------------------ */
+
+.list-group-item {
+
+    border: none;
+
+    padding: 12px;
+
+}
+
+/* ------------------------------------------
+   Audit Trail
+------------------------------------------ */
+
+#auditTrail{
+
+    padding-left:0;
+
+}
+
+#auditTrail .list-group-item{
+
+    border-left:5px solid #0d6efd;
+
+    background:#fafafa;
+
+    margin-bottom:8px;
+
+    border-radius:8px;
+
+}
+
+/* ------------------------------------------
+   Policy Box
+------------------------------------------ */
+
+.alert{
+
+    border-radius:10px;
+
+}
+
+/* ------------------------------------------
+   Table
+------------------------------------------ */
+
+table{
+
+    margin-bottom:0;
+
+}
+
+table th{
+
+    background:#0d6efd;
+
+    color:white;
+
+    text-align:center;
+
+}
+
+table td{
+
+    vertical-align:middle;
+
+    text-align:center;
+
+}
+
+/* ------------------------------------------
+   Workflow Card
+------------------------------------------ */
+
+.card-body.text-center{
+
+    font-weight:500;
+
+    font-size:16px;
+
+}
+
+/* ------------------------------------------
+   Footer
+------------------------------------------ */
+
+footer{
+
+    margin-top:30px;
+
+    text-align:center;
+
+    color:gray;
+
+    font-size:14px;
+
+}
+
+/* ------------------------------------------
+   Responsive
+------------------------------------------ */
+
+@media (max-width:992px){
+
+.card{
+
+margin-bottom:25px;
+
+}
+
+}
+
+@media (max-width:768px){
+
+h1{
+
+font-size:28px;
+
+}
+
+h2{
+
+font-size:24px;
+
+}
+
+.rule-box{
+
+margin-bottom:15px;
+
+}
+
+.card-header h5{
+
+font-size:17px;
+
+}
+
+#decision{
+
+display:block;
+
+width:100%;
+
+}
+
+}

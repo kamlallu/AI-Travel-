@@ -1,0 +1,23 @@
+[
+  {
+    "employee_id": "EMP001",
+    "category": "Hotel",
+    "amount": 4500,
+    "receipt": true,
+    "manager_approval": true
+  },
+  {
+    "employee_id": "EMP002",
+    "category": "Hotel",
+    "amount": 7000,
+    "receipt": true,
+    "manager_approval": true
+  },
+  {
+    "employee_id": "EMP003",
+    "category": "Meals",
+    "amount": 2000,
+    "receipt": false,
+    "manager_approval": false
+  }
+]

@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+python-dotenv
+pydantic
+python-multipart
+
+langchain==0.2.17
+langchain-core==0.2.43
+langchain-community==0.2.19
+langchain-google-genai==1.0.10
+
+google-generativeai
+
+faiss-cpu
+pypdf
+pytest

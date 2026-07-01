@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Travel Reimbursement Approval Agent</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<div class="container py-4">
+
+    <!-- Header -->
+
+    <div class="text-center mb-4">
+
+        <h1 class="fw-bold text-primary">
+            <i class="bi bi-robot"></i>
+            AI Travel Reimbursement Approval Agent
+        </h1>
+
+        <p class="text-muted">
+            AI Powered Travel Expense Evaluation System
+        </p>
+
+    </div>
+
+    <div class="row">
+
+        <!-- Left Panel -->
+
+        <div class="col-lg-4">
+
+            <div class="card shadow">
+
+                <div class="card-header bg-primary text-white">
+
+                    <h5>
+                        <i class="bi bi-file-earmark-text"></i>
+                        Claim Details
+                    </h5>
+
+                </div>
+
+                <div class="card-body">
+
+                    <div class="mb-3">
+
+                        <label class="form-label">Employee ID</label>
+
+                        <input
+                            id="employee_id"
+                            class="form-control"
+                            placeholder="EMP101">
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">Employee Name</label>
+
+                        <input
+                            id="employee_name"
+                            class="form-control"
+                            placeholder="John Smith">
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">Department</label>
+
+                        <select
+                            id="department"
+                            class="form-select">
+
+                            <option>IT</option>
+                            <option>Finance</option>
+                            <option>HR</option>
+                            <option>Sales</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">Travel Category</label>
+
+                        <select
+                            id="category"
+                            class="form-select">
+
+                            <option>Hotel</option>
+                            <option>Flight</option>
+                            <option>Meals</option>
+                            <option>Taxi</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">Claim Amount</label>
+
+                        <input
+                            type="number"
+                            id="amount"
+                            class="form-control">
+
+                    </div>
+
+                    <div class="form-check">
+
+                        <input
+                            class="form-check-input"
+                            id="receipt"
+                            type="checkbox">
+
+                        <label class="form-check-label">
+
+                            Receipt Attached
+
+                        </label>
+
+                    </div>
+
+                    <div class="form-check mb-4">
+
+                        <input
+                            class="form-check-input"
+                            id="approval"
+                            type="checkbox">
+
+                        <label class="form-check-label">
+
+                            Manager Approval Available
+
+                        </label>
+
+                    </div>
+
+                    <button
+                        class="btn btn-primary w-100"
+                        id="evaluateBtn">
+
+                        <i class="bi bi-stars"></i>
+
+                        Evaluate Claim
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Right Panel -->
+
+        <div class="col-lg-8">
+
+            <div class="card shadow">
+
+                <div class="card-header bg-success text-white">
+
+                    <h5>
+
+                        <i class="bi bi-cpu"></i>
+
+                        AI Recommendation
+
+                    </h5>
+
+                </div>
+
+                <div class="card-body">
+
+                    <h2>
+
+                        <span
+                            class="badge bg-secondary"
+                            id="decision">
+
+                            Waiting...
+
+                        </span>
+
+                    </h2>
+
+                    <hr>
+
+                    <div class="row">
+
+                        <div class="col-md-4">
+
+                            <h6>Approved</h6>
+
+                            <h4 id="approved_amount">
+
+                                ₹0
+
+                            </h4>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <h6>Deduction</h6>
+
+                            <h4 id="deduction">
+
+                                ₹0
+
+                            </h4>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <h6>Confidence</h6>
+
+                            <div class="progress">
+
+                                <div
+                                    id="confidenceBar"
+                                    class="progress-bar"
+                                    style="width:0%">
+
+                                    0%
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <hr>
+
+                    <h6>AI Reason</h6>
+
+                    <p id="reason">
+
+                        Waiting for AI evaluation...
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Business Rule Validation -->
+
+    <div class="card shadow mt-4">
+
+        <div class="card-header bg-warning">
+
+            <h5>
+
+                <i class="bi bi-check2-circle"></i>
+
+                Business Rule Validation
+
+            </h5>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row text-center">
+
+                <div class="col-md-2">
+
+                    <div class="rule-box">
+
+                        <h6>Policy</h6>
+
+                        <span id="policyStatus"
+                            class="badge bg-secondary">
+
+                            Pending
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-2">
+
+                    <div class="rule-box">
+
+                        <h6>Receipt</h6>
+
+                        <span id="receiptStatus"
+                            class="badge bg-secondary">
+
+                            Pending
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-2">
+
+                    <div class="rule-box">
+
+                        <h6>Limit</h6>
+
+                        <span id="limitStatus"
+                            class="badge bg-secondary">
+
+                            Pending
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-2">
+
+                    <div class="rule-box">
+
+                        <h6>Duplicate</h6>
+
+                        <span id="duplicateStatus"
+                            class="badge bg-secondary">
+
+                            Pending
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-2">
+
+                    <div class="rule-box">
+
+                        <h6>Approval</h6>
+
+                        <span id="approvalStatus"
+                            class="badge bg-secondary">
+
+                            Pending
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-2">
+
+                    <div class="rule-box">
+
+                        <h6>AI Review</h6>
+
+                        <span id="aiStatus"
+                            class="badge bg-secondary">
+
+                            Waiting
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="alert alert-info mt-3">
+
+                <strong>Policy Reference:</strong>
+
+                <span id="policy">
+
+                    Waiting...
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Audit Trail -->
+
+    <div class="card shadow mt-4">
+
+        <div class="card-header bg-dark text-white">
+
+            <h5>
+
+                <i class="bi bi-clock-history"></i>
+
+                Audit Trail
+
+            </h5>
+
+        </div>
+
+        <div class="card-body">
+
+            <ul
+                id="auditTrail"
+                class="list-group">
+
+                <li class="list-group-item">
+
+                    Waiting for claim submission...
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- Recent Claims -->
+
+    <div class="card shadow mt-4">
+
+        <div class="card-header bg-info text-white">
+
+            <h5>
+
+                <i class="bi bi-table"></i>
+
+                Recent Claims
+
+            </h5>
+
+        </div>
+
+        <div class="card-body">
+
+            <table
+                class="table table-bordered table-striped">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Employee</th>
+
+                        <th>Category</th>
+
+                        <th>Amount</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="historyTable">
+
+                    <tr>
+
+                        <td colspan="4"
+                            class="text-center">
+
+                            No claims submitted.
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- Agent Workflow -->
+
+    <div class="card shadow mt-4 mb-4">
+
+        <div class="card-header bg-secondary text-white">
+
+            <h5>
+
+                <i class="bi bi-diagram-3"></i>
+
+                AI Agent Workflow
+
+            </h5>
+
+        </div>
+
+        <div class="card-body text-center">
+
+            Claim
+
+            ➜
+
+            Policy Engine
+
+            ➜
+
+            Receipt Validator
+
+            ➜
+
+            Limit Checker
+
+            ➜
+
+            Duplicate Detector
+
+            ➜
+
+            Manager Approval
+
+            ➜
+
+            Gemini AI
+
+            ➜
+
+            Recommendation
+
+            ➜
+
+            Final Decision
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/static/js/app.js"></script>
+
+</body>
+
+</html>
