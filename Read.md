@@ -1,0 +1,1 @@
+The project is the Travel Reimbursement Approval Agent which uses GenAI to review employee requests for reimbursement based on the firm’s travel policy, business rules and Google Gemini. This system uses deterministic validation techniques and reasoning by LLM to create structured reimbursement decisions.
